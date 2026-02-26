@@ -7,7 +7,8 @@ const prisma = new PrismaClient();
 
 export default async function AdminTimesheetsPage() {
     const session = await auth();
-    if (!session || !session.user || (session.user.role !== "ADMIN" && session.user.role !== "MANAGER")) {
+    const user = session?.user as any;
+    if (!session || !user || (user.role !== "ADMIN" && user.role !== "MANAGER")) {
         redirect("/login");
     }
 
@@ -83,8 +84,8 @@ export default async function AdminTimesheetsPage() {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${log.status === 'ON_TIME'
-                                                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400'
-                                                        : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400'
+                                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400'
+                                                    : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400'
                                                     }`}>
                                                     {log.status === 'ON_TIME' ? 'On Time' : 'Late'}
                                                 </span>
