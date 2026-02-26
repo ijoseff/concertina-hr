@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 
+export const dynamic = "force-dynamic";
+
 export default async function TimesheetsPage() {
     const session = await auth();
     if (!session || !session.user || !session.user.id) {
