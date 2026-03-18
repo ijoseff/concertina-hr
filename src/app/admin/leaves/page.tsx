@@ -35,9 +35,9 @@ export default async function AdminLeavesPage() {
     return (
         <div className="max-w-5xl mx-auto space-y-8">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Leave Approvals</h1>
+                <h1 className="text-3xl font-bold tracking-tight">PFFD Approvals</h1>
                 <p className="text-muted-foreground mt-1 text-lg">
-                    Review and manage employee time off requests.
+                    Review and manage employee PFFD requests.
                 </p>
             </div>
 
@@ -48,7 +48,7 @@ export default async function AdminLeavesPage() {
                         <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10 mb-4">
                             <span className="text-primary text-xl">✨</span>
                         </div>
-                        <p>All caught up! No pending leave requests to review.</p>
+                        <p>All caught up! No pending PFFD requests to review.</p>
                     </div>
                 ) : (
                     <div className="grid gap-4">
@@ -62,7 +62,7 @@ export default async function AdminLeavesPage() {
                                         </span>
                                     </div>
                                     <p className="text-muted-foreground text-sm font-medium">
-                                        <span className="capitalize text-foreground">{request.leaveType === 'LEAVE_CREDITS' ? 'Leave Credits' : request.leaveType.toLowerCase() + ' Leave'}</span> • {format(request.startDate, "MMM d")} to {format(request.endDate, "MMM d, yyyy")}
+                                        <span className="capitalize text-foreground">{request.leaveType === 'LEAVE_CREDITS' ? 'PFFD Credits' : request.leaveType.toLowerCase() + ' PFFD'}</span> • {format(request.startDate, "MMM d")} to {format(request.endDate, "MMM d, yyyy")}
                                     </p>
                                     {request.reason && (
                                         <p className="text-sm mt-3 pt-3 border-t italic text-muted-foreground max-w-2xl">
@@ -122,7 +122,7 @@ export default async function AdminLeavesPage() {
                                                 {request.user.name}
                                             </td>
                                             <td className="px-6 py-4 capitalize">
-                                                {request.leaveType === 'LEAVE_CREDITS' ? 'Leave Credits' : request.leaveType.toLowerCase()}
+                                                {request.leaveType === 'LEAVE_CREDITS' ? 'PFFD Credits' : request.leaveType.toLowerCase()}
                                             </td>
                                             <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">
                                                 {format(request.startDate, "MMM d")} - {format(request.endDate, "MMM d, yyyy")}

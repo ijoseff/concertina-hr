@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Clock, LayoutDashboard, CalendarHeart, Users, Settings, History } from "lucide-react";
+import { Menu, X, Clock, LayoutDashboard, CalendarHeart, Users, Settings, History, Megaphone, BookOpen, BookUser, UserCircle, Calendar, CalendarDays, ClipboardList } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -10,12 +10,21 @@ import { handleSignOut } from "@/app/actions/auth";
 const EMP_ROUTES = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
     { name: "Timesheets", href: "/timesheets", icon: Clock },
-    { name: "Leave Requests", href: "/leaves", icon: CalendarHeart },
+    { name: "Schedules", href: "/schedule", icon: CalendarDays },
+    { name: "PFFD Requests", href: "/leaves", icon: CalendarHeart },
+    { name: "Knowledge Base", href: "/docs", icon: BookOpen },
+    { name: "Team Directory", href: "/directory", icon: BookUser },
+    { name: "Company Holidays", href: "/holidays", icon: Calendar },
+    { name: "My Profile", href: "/profile", icon: UserCircle },
 ];
 
 const ADMIN_ROUTES = [
     { name: "Time Logs", href: "/admin/timesheets", icon: History },
     { name: "Leave Approvals", href: "/admin/leaves", icon: Users },
+    { name: "Schedules Manager", href: "/admin/schedules", icon: CalendarDays },
+    { name: "Holiday Manager", href: "/admin/holidays", icon: Calendar },
+    { name: "Reports Dashboard", href: "/admin/reports", icon: ClipboardList },
+    { name: "Announcements", href: "/admin/announcements", icon: Megaphone },
 ];
 
 export function AppShell({ user, children }: { user: any, children: React.ReactNode }) {

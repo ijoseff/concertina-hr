@@ -13,6 +13,9 @@
     "@auth/core": "^0.41.0",
     "@auth/prisma-adapter": "^2.11.1",
     "@prisma/client": "^5.22.0",
+    "@tiptap/extension-placeholder": "^3.20.3",
+    "@tiptap/react": "^3.20.3",
+    "@tiptap/starter-kit": "^3.20.3",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.575.0",
@@ -20,6 +23,7 @@
     "next-auth": "^5.0.0-beta.30",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "slugify": "^1.6.8",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

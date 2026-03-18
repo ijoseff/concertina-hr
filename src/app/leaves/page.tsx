@@ -27,9 +27,9 @@ export default async function LeavesPage() {
     return (
         <div className="max-w-5xl mx-auto space-y-8">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Leave Management</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Pre-Funded Flex Days (PFFD)</h1>
                 <p className="text-muted-foreground mt-1 text-lg">
-                    Request time off and view your balances.
+                    Request PFFD time off and view your balances.
                 </p>
             </div>
 
@@ -42,7 +42,7 @@ export default async function LeavesPage() {
                             {balances.map((balance: any) => (
                                 <div key={balance.id} className="flex items-center justify-between p-3 rounded-lg bg-background/50 backdrop-blur border">
                                     <div>
-                                        <p className="font-medium text-sm capitalize">{balance.leaveType === 'LEAVE_CREDITS' ? 'Leave Credits' : balance.leaveType.toLowerCase()}</p>
+                                        <p className="font-medium text-sm capitalize">{balance.leaveType === 'LEAVE_CREDITS' ? 'PFFD Credits' : balance.leaveType.toLowerCase()}</p>
                                         <p className="text-xs text-muted-foreground">Available</p>
                                     </div>
                                     <div className="text-xl font-bold text-primary">{balance.balance}</div>
@@ -59,10 +59,10 @@ export default async function LeavesPage() {
                             await submitLeaveRequest(formData);
                         }} className="space-y-4">
                             <div>
-                                <label className="text-sm font-medium mb-1.5 block" htmlFor="leaveType">Leave Type</label>
+                                <label className="text-sm font-medium mb-1.5 block" htmlFor="leaveType">Time-Off Type</label>
                                 <input type="hidden" name="leaveType" value="LEAVE_CREDITS" id="leaveType" />
                                 <div className="flex h-10 w-full rounded-md border border-input bg-muted px-3 py-2 text-sm text-muted-foreground items-center">
-                                    Leave Credits
+                                    PFFD Credits
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
@@ -105,14 +105,14 @@ export default async function LeavesPage() {
                                     {leaveRequests.length === 0 ? (
                                         <tr>
                                             <td colSpan={4} className="px-6 py-8 text-center text-muted-foreground">
-                                                No leave requests found.
+                                                No PFFD requests found.
                                             </td>
                                         </tr>
                                     ) : (
                                         leaveRequests.map((request: any) => (
                                             <tr key={request.id} className="hover:bg-muted/50 transition-colors">
                                                 <td className="px-6 py-4 font-medium capitalize">
-                                                    {request.leaveType === 'LEAVE_CREDITS' ? 'Leave Credits' : request.leaveType.toLowerCase()}
+                                                    {request.leaveType === 'LEAVE_CREDITS' ? 'PFFD Credits' : request.leaveType.toLowerCase()}
                                                 </td>
                                                 <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">
                                                     {format(request.startDate, "MMM d")} - {format(request.endDate, "MMM d, yyyy")}
